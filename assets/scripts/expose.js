@@ -4,11 +4,11 @@ window.addEventListener('DOMContentLoaded', init);
 
 function init() {
   const hornSelect = document.getElementById("horn-select");
-  const hornPic = document.querySelector(header + img);
+  const hornPic = document.querySelector("header + img");
   const audio = document.getElementsByClassName("hidden")[0];
   const volume = document.getElementById("volume");
-  const volImg = document.getElementBySelector(div > img);
-  const button = document.getElementBySelector(button);
+  const volImg = document.querySelector("div > img");
+  const button = document.querySelector("button");
   const jsConfetti = new JSConfetti();
 
   hornSelect.addEventListener("change", (event) => {
