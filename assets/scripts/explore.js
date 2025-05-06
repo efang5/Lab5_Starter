@@ -4,7 +4,6 @@ window.addEventListener('DOMContentLoaded', init);
 
 function init() {
   const synth = window.speechSynthesis;
-  const voices = synth.getVoices();
   const selection = document.getElementById("voice-select");
   let voice;
   const text = document.getElementById("text-to-speak");
@@ -14,6 +13,7 @@ function init() {
   const picture = document.querySelector("img");
 
   selection.addEventListener("voiceschanged", () => {
+    const voices = synth.getVoices();
     for(let i = 0; i < voices.length(); i++){
       const option = document.createElement("option");
       option.textContent = `${voices[i].name} (${voices[i].lang})`;
