@@ -13,7 +13,7 @@ function init() {
   let utterance;
   const picture = document.querySelector("img");
 
-  selection.addEventListener("load", () => {
+  selection.addEventListener("voiceschanged", () => {
     for(let i = 0; i < voices.length(); i++){
       const option = document.createElement("option");
       option.textContent = `${voices[i].name} (${voices[i].lang})`;
@@ -43,7 +43,7 @@ function init() {
     picture.src = "assets/images/smiling-open.png";
   });
 
-  synth.addEventListener("end", () => {
+  utterance.addEventListener("end", () => {
     picture.src = "assets/images/smiling.png";
   });
 }
