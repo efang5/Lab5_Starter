@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', init);
 function init() {
   const synth = window.speechSynthesis;
   const selection = document.getElementById("voice-select");
+  let voices;
   let voice;
   const text = document.getElementById("text-to-speak");
   let textToSpeak;
@@ -13,7 +14,7 @@ function init() {
   const picture = document.querySelector("img");
 
   synth.addEventListener("voiceschanged", () => {
-    const voices = synth.getVoices();
+    voices = synth.getVoices();
     for(let i = 0; i < voices.length; i++){
       const option = document.createElement("option");
       option.textContent = `${voices[i].name} (${voices[i].lang})`;
@@ -29,7 +30,12 @@ function init() {
   });
 
   selection.addEventListener("change", (event) => {
-    voice = event.target.value;
+    const selectedOption = selection.selectedOptions[0].getAttribute("data-name");
+    for (let i = 0; i < voices.length; i++) {
+      if (voices[i].name === selectedOption) {
+        voice = voices[i];
+      }
+    }
   });
 
   text.addEventListener("input", (event) => {
