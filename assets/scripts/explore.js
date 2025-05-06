@@ -10,7 +10,7 @@ function init() {
   const text = document.getElementById("text-to-speak");
   let textToSpeak;
   const button = document.querySelector("button");
-  let utterance = new SpeechSynthesisUtterance();
+  let utterance;
   const picture = document.querySelector("img");
 
   selection.addEventListener("voiceschanged", () => {
@@ -41,9 +41,9 @@ function init() {
     utterance.voice = voice;
     synth.speak(utterance);
     picture.src = "assets/images/smiling-open.png";
-  });
 
-  utterance.addEventListener("end", () => {
-    picture.src = "assets/images/smiling.png";
+    utterance.addEventListener("end", () => {
+      picture.src = "assets/images/smiling.png";
+    });
   });
 }
