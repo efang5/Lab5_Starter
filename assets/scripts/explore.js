@@ -10,7 +10,7 @@ function init() {
   const text = document.getElementById("text-to-speak");
   let textToSpeak;
   const button = document.querySelector("button");
-  let utterance;
+  let utterance = new SpeechSynthesisUtterance();
   const picture = document.querySelector("img");
 
   selection.addEventListener("voiceschanged", () => {
